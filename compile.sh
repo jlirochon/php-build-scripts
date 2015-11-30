@@ -248,6 +248,10 @@ elif [ "$COMPILE_TARGET" == "linux64" ]; then
 	CFLAGS="$CFLAGS -m64"
 	GMP_ABI="64"
 	echo "[INFO] Compiling for Linux x86_64"
+elif [[ "$COMPILE_TARGET" == "scaleway-c1" ]]; then
+	[ -z "$march" ] && march=armv7-a;
+	[ -z "$mtune"] && mtune=cortex-a9;
+	echo "[INFO] Compiling for Scaleway C1 ARMv7a Cortex A9"
 elif [ "$COMPILE_TARGET" == "rpi" ]; then
 	[ -z "$march" ] && march=armv6zk;
 	[ -z "$mtune" ] && mtune=arm1176jzf-s;
